@@ -13,6 +13,9 @@ jobs:
       - name: Srtool build
         id: srtool_build
         uses: chevdor/srtool-actions@v0.6.0
+        env:
+          # optional: will be passed to docker srtool run cmd
+          BUILD_OPTS: "--features on-chain-release-build"
         with:
           chain: ${{ matrix.chain }}
           runtime_dir: polkadot-parachains/${{ matrix.chain }}-runtime
